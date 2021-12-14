@@ -19,10 +19,7 @@ export class BooksService {
     const book = await this.prisma.book.create({
       include: {
         authors: {
-          select: { authorId: false, bookId: false },
-          include: {
-            author: {},
-          },
+          select: { author: {} },
         },
       },
       data: {
